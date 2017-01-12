@@ -1,0 +1,50 @@
+body{
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+#main{
+  padding: 20px;
+  text-align: center;
+}
+
+#board{
+  display: inline-block;
+}
+
+.row{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.cell{
+  display: inline-block;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  border: 1px solid #333;
+  width: 40px;
+  height: 40px;
+}
+
+
+.controls{
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.controls li{
+  width: 40px;
+  list-style-type: none;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+.controls li input[type=submit]{
+  width: 40px;
+  height: 40px;
+  border: 1px solid red;
+}

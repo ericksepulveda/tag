@@ -6,8 +6,7 @@ app = Flask(__name__)
 fil = FourInLine()
 
 def show():
-	return render_template('index.html')
-
+	return render_template('index.html', board=fil.getBoard(), turn=fil.getTurn(), state=fil.getState())
 
 @app.route('/')
 def home():

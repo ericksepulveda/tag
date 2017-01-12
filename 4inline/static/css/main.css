@@ -9,6 +9,10 @@ body{
   color: white;
 }
 
+a{
+  color: white;
+}
+
 #main{
   padding: 20px;
   text-align: center;
@@ -68,6 +72,7 @@ h2{
   margin-left: 8px;
   left: 0;
   display: none;
+  transition: all .2s;
 }
 
 #shadow_left{
@@ -157,4 +162,26 @@ h2{
 
 #play{
   margin-top: 300px;
+}
+
+.bounce{
+  animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translate(0, 4px);
+  }
+
+  20%, 80% {
+    transform: translate(0, -2px);
+  }
+
+  30%, 50%, 70% {
+    transform: translate(0, 4px);
+  }
+
+  40%, 60% {
+    transform: translate(0, -2px);
+  }
 }

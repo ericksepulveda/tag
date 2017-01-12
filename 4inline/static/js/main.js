@@ -29,7 +29,14 @@ $(document).ready( function() {
 
   $('.cell').click(function(){
     var x = parseInt($(this).attr('id').split('_')[1]);
-    play(x);
+    var y = getBottom(x);
+    $('#preview').css('top', y);
+    setTimeout( function(){
+      $('#board').addClass('bounce');
+    }, 200);
+    setTimeout( function(){
+      play(x);
+    }, 350);
   });
 
 });
@@ -37,4 +44,16 @@ $(document).ready( function() {
 function play(x){
   $('input#col').val(x);
   $('#play').submit();
+}
+
+function getBottom(x){
+  var i = 0, N = 8;
+  var count = 0;
+  for(i = 0; i < N; i++){
+    var $item = $('#' + i + '_' + x);
+    if($item.hasClass('yellow') || $item.hasClass('red')){
+      count++;
+    }
+  }
+  return 345 - (count * 48);
 }

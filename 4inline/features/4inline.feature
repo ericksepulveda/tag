@@ -1,4 +1,4 @@
-Feature: A Game of Toque y Fama
+Feature: A Game of 4 en linea
 
 Scenario: Game starts
   Given Game started

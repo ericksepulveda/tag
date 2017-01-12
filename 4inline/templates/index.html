@@ -31,14 +31,15 @@
 
 		{% for row in board[::-1] %}
 			{% set outer_loop = loop %}
-	  	<ul id="row{{ loop.index }}" class="row">
+			{% set N = board|length %}
+	  	<ul id="row{{ N - loop.index0 }}" class="row">
 				{% for col in row%}
 					{% if col == 0 %}
-						<li id="{{outer_loop.index}}_{{loop.index}}" class="cell">{{col}}</li>
+						<li id="{{N - outer_loop.index}}_{{loop.index0}}" class="cell">{{col}}</li>
 					{% elif col == 1 %}
-						<li id="{{outer_loop.index}}_{{loop.index}}" class="cell yellow">{{col}}</li>
+						<li id="{{N - outer_loop.index}}_{{loop.index0}}" class="cell yellow">{{col}}</li>
 					{% elif col == 2 %}
-						<li id="{{outer_loop.index}}_{{loop.index}}" class="cell red">{{col}}</li>
+						<li id="{{N - outer_loop.index}}_{{loop.index0}}" class="cell red">{{col}}</li>
 					{% endif %}
 				{% endfor %}
 			</ul>

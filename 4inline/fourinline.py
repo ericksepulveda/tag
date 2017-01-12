@@ -35,5 +35,9 @@ def send_css(path):
 def send_img(path):
     return send_from_directory('static/img', path)
 
+@app.route('/mp3/<path:path>')
+def send_mp3(path):
+    return send_from_directory('static/mp3', path)
+
 if __name__ == "__main__":
     app.run()

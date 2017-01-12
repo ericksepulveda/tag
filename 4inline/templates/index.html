@@ -2,10 +2,74 @@
 <head>
 	<title>4 en línea</title>
 	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
+	<link href="img/favicon.ico" rel="icon" type="image/x-icon"/>
 </head>
 <body>
 
-<script type="text/javascript">
-</script>
+<div id="main">
+	<h1>4 en línea</h1>
+
+	<h2>
+		{% if state == 0 %}
+			{% if turn == 1%}
+				<div id="turn" class="yellow-turn">Turno: Amarillo</div>
+			{% else %}
+				<div id="turn" class="red-turn">Turno: Rojo</div>
+			{% endif %}
+		{% elif state == 1 %}
+			<div id="winner" class="yellow-turn">El amarillo es el ganador!</div>
+		{% elif state == 2 %}
+			<div id="winner" class="red-turn">El rojo es el ganador!</div>
+		{% endif %}
+	</h2>
+
+	<input id="state" type="hidden" value="{{ state }}"/>
+	<input id="turn" type="hidden" value="{{ turn }}"/>
+
+	<div id="board">
+		<img id="mask" src="img/mask.png"/>
+		<div id="preview" class="cell"></div>
+
+		{% for row in board[::-1] %}
+			{% set outer_loop = loop %}
+			{% set N = board|length %}
+	  	<ul id="row{{ N - loop.index0 }}" class="row">
+				{% for col in row%}
+					{% if col == 0 %}
+						<li id="{{N - outer_loop.index}}_{{loop.index0}}" class="cell">{{col}}</li>
+					{% elif col == 1 %}
+						<li id="{{N - outer_loop.index}}_{{loop.index0}}" class="cell yellow">{{col}}</li>
+					{% elif col == 2 %}
+						<li id="{{N - outer_loop.index}}_{{loop.index0}}" class="cell red">{{col}}</li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		{% endfor %}
+
+		<div id="shadow_left"></div>
+		<div id="shadow_bottom_corner"></div>
+		<div id="shadow_bottom"></div>
+		<div id="shadow_left_top_corner"></div>
+		<div id="shadow_left_bottom_corner"></div>
+
+	</div>
+
+	<div id="confetti"></div>
+
+	<form id="play" method="POST" action="move">
+		<input id="col" type="text" name="col" value="0"/>
+		<input id="play" type="submit" value="Jugar"/>
+	</form>
+</div>
+
+
+	<script
+	  src="https://code.jquery.com/jquery-3.1.1.min.js"
+	  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
+	  crossorigin="anonymous"></script>
+	<script type="text/javascript" src="js/main.js"></script>
+	<script type="text/javascript" src="js/confetti.js"></script>
 </body>
 </html>

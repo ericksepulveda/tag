@@ -1,6 +1,7 @@
 import unittest
+from fourinlineclass import FourInLine
 
-class TestStringMethods(unittest.TestCase):
+class FourInLineTest(unittest.TestCase):
 
     def test_upper(self):
         self.assertEqual('foo'.upper(), 'FOO')
@@ -15,6 +16,13 @@ class TestStringMethods(unittest.TestCase):
         # check that s.split fails when the separator is not a string
         with self.assertRaises(TypeError):
             s.split(2)
+    def test_fourHorizontal(self):
+        f = FourInLine()
+        for i in range(1,4):
+            f.dropChip(i)
+        r = f.dropChip(4)
+        self.assertEqual(f.check4Horizontal(r[0],r[1]), True)
+
 
 if __name__ == '__main__':
     unittest.main()

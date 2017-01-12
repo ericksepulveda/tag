@@ -12,8 +12,15 @@ def show():
 def home():
 	return show()
 
+@app.route('/restart')
+def restart():
+  fil.restart()
+  return show()
+
 @app.route('/move', methods=["POST"])
-def move(): pass
+def move():
+  fil.dropChip(int(request.form['col']))
+  return show()
 
 @app.route('/js/<path:path>')
 def send_js(path):

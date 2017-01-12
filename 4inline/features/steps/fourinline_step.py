@@ -19,3 +19,12 @@ def step_impl(context):
   turn = browser.find_by_id("turn")
   assert turn, browser.html
   assert turn.find_by_text("Turno actual: Amarillo"), browser.html
+
+@when(u'player makes a move on column {col}')
+def step_impl(context, col):
+  browser.fill('col', col)
+  browser.find_by_id('submit').click()
+
+@then(u'there should be a yellow element in column {col}')
+def step_impl(context, col):
+  assert browser.find_by_id('0_' + col).first.text == 1

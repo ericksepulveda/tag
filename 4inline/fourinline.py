@@ -1,5 +1,5 @@
 # define simple flask app
-from flask import Flask, render_template, send_from_directory, request
+from flask import Flask, render_template, send_from_directory, request, redirect
 from fourinlineclass import FourInLine
 app = Flask(__name__)
 
@@ -14,14 +14,13 @@ def home():
 
 @app.route('/restart')
 def restart():
-  fil.restart()
   return show()
 
 @app.route('/move', methods=["POST"])
 def move():
   r = fil.play(int(request.form['col']))
-  # fil.check4Horizontal(r[0],r[1])
-  return show()
+  return redirect('/')
+  # return show()
 
 @app.route('/js/<path:path>')
 def send_js(path):

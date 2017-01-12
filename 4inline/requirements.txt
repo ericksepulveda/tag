@@ -1,5 +1,4 @@
 flask
-behave
+behave-jenkins
 splinter[flask]
 nose
-

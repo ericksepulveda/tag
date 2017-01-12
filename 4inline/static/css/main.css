@@ -34,6 +34,16 @@ h2{
   margin: 0 0 10px 0;
 }
 
+#confetti{
+	background: transparent;
+	height: 100%;
+	left: 0px;
+	position: fixed;
+	top: 0px;
+	width: 100%;
+	z-index: -1;
+}
+
 #board{
   margin-top: 80px;
   margin-left: 20px;

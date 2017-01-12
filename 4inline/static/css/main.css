@@ -1,11 +1,25 @@
 body{
   font-family: 'Shadows Into Light', cursive;
   font-size: 14px;
+  background: #000000; /* Old browsers */
+  background: -moz-linear-gradient(45deg, #000000 0%, #72140b 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(45deg, #000000 0%,#72140b 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(45deg, #000000 0%,#72140b 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#72140b',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+  color: white;
 }
 
 #main{
   padding: 20px;
   text-align: center;
+}
+
+.yellow-turn{
+  color: #e4c809;
+}
+
+.red-turn{
+  color: #cd0b0b;
 }
 
 h1{
@@ -20,6 +34,7 @@ h2{
 }
 
 #board{
+  margin-top: 30px;
   display: inline-block;
   padding: 8px;
   background-color: #05668f;
@@ -41,7 +56,7 @@ h2{
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: white;
+  background-color: black;
   cursor: pointer;
 }
 
@@ -57,7 +72,6 @@ h2{
   opacity: 0.8;
 }
 
-
 #play{
-  margin-top: 100px;
+  margin-top: 300px;
 }

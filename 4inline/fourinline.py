@@ -20,7 +20,7 @@ def restart():
 @app.route('/move', methods=["POST"])
 def move():
   r = fil.play(int(request.form['col']))
-  fil.check4Horizontal(r[0],r[1])
+  # fil.check4Horizontal(r[0],r[1])
   return show()
 
 @app.route('/js/<path:path>')

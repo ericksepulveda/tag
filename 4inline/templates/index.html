@@ -3,7 +3,7 @@
 	<title>4 en línea</title>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
-	<link href="https://fonts.googleapis.com/css?family=Shadows+Into+Light" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
 </head>
 <body>
 
@@ -30,18 +30,22 @@
 	<div id="board">
 
 		{% for row in board[::-1] %}
-	  	<ul class="row">
+			{% set outer_loop = loop %}
+	  	<ul id="row{{ loop.index }}" class="row">
 				{% for col in row%}
 					{% if col == 0 %}
-						<li class="cell"></li>
+						<li id="{{outer_loop.index}}_{{loop.index}}" class="cell">{{col}}</li>
 					{% elif col == 1 %}
-						<li class="cell yellow"></li>
+						<li id="{{outer_loop.index}}_{{loop.index}}" class="cell yellow">{{col}}</li>
 					{% elif col == 2 %}
-						<li class="cell red"></li>
+						<li id="{{outer_loop.index}}_{{loop.index}}" class="cell red">{{col}}</li>
 					{% endif %}
 				{% endfor %}
 			</ul>
 		{% endfor %}
+
+		<div id="shadow_left"></div>
+		<div id="shadow_bottom"></div>
 
 	</div>
 

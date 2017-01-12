@@ -9,6 +9,9 @@ body{
 
 #board{
   display: inline-block;
+  padding: 10px;
+  background-color: #05668f;
+  border-radius: 3px;
 }
 
 .row{
@@ -25,26 +28,20 @@ body{
   border: 1px solid #333;
   width: 40px;
   height: 40px;
+  border-radius: 50%;
+  background-color: white;
+  cursor: pointer;
+}
+
+.cell.yellow{
+  background-color: #fce50f;
+}
+
+.cell.red{
+  background-color: #d91408;
 }
 
 
-.controls{
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.controls li{
-  width: 40px;
-  list-style-type: none;
-  display: inline-block;
-  margin: 0;
-  padding: 0;
-  text-align: center;
-}
-
-.controls li input[type=submit]{
-  width: 40px;
-  height: 40px;
-  border: 1px solid red;
+#play{
+  margin-top: 20px;
 }

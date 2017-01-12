@@ -10,7 +10,7 @@
 	<h1>4 en línea</h1>
 
 	<div id="turn">
-		<h4>Turno actual: Jugador 1</h4>
+		<h4>Turno actual: Amarillo</h4>
 	</div>
 
 	<div id="board">
@@ -92,61 +92,15 @@
 	    <li class="cell"></li>
 			<li class="cell"></li>
 	    <li class="cell"></li>
-	    <li class="cell"></li>
-	    <li class="cell"></li>
+	    <li class="cell red"></li>
+	    <li class="cell yellow"></li>
 	  </ul>
-
-		<ul class="controls">
-			<li>
-				<form method="POST" action="move">
-					<input type="hidden" id="col" name="col" value="0"/>
-					<input type="submit" value="&uarr;"/>
-				</form>
-			</li>
-			<li>
-				<form method="POST" action="move">
-					<input type="hidden" id="col" name="col" value="1"/>
-					<input type="submit" value="&uarr;"/>
-				</form>
-			</li>
-			<li>
-				<form method="POST" action="move">
-					<input type="hidden" id="col" name="col" value="2"/>
-					<input type="submit" value="&uarr;"/>
-				</form>
-			</li>
-			<li>
-				<form method="POST" action="move">
-					<input type="hidden" id="col" name="col" value="3"/>
-					<input type="submit" value="&uarr;"/>
-				</form>
-			</li>
-			<li>
-				<form method="POST" action="move">
-					<input type="hidden" id="col" name="col" value="4"/>
-					<input type="submit" value="&uarr;"/>
-				</form>
-			</li>
-			<li>
-				<form method="POST" action="move">
-					<input type="hidden" id="col" name="col" value="5"/>
-					<input type="submit" value="&uarr;"/>
-				</form>
-			</li>
-			<li>
-				<form method="POST" action="move">
-					<input type="hidden" id="col" name="col" value="6"/>
-					<input type="submit" value="&uarr;"/>
-				</form>
-			</li>
-			<li>
-				<form method="POST" action="move">
-					<input type="hidden" id="col" name="col" value="7"/>
-					<input type="submit" value="&uarr;"/>
-				</form>
-			</li>
-		</ul>
 	</div>
+
+	<form id="play" method="POST" action="move">
+		<input type="text" id="col" name="col" value="0"/>
+		<input type="submit" value="Jugar"/>
+	</form>
 </div>
 
 

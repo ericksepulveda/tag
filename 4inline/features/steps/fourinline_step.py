@@ -18,4 +18,4 @@ def step_impl(context):
 def step_impl(context):
   turn = browser.find_by_id("turn")
   assert turn, browser.html
-  assert turn.find_by_text("yellow"), browser.html
+  assert turn.find_by_text("Turno actual: Amarillo"), browser.html

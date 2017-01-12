@@ -10,92 +10,39 @@
 <div id="main">
 	<h1>4 en línea</h1>
 
-	<div id="turn">
-		<h2>Turno actual: Amarillo</h2>
-	</div>
+	<h2 id="turn">
+		{% if state == 0 %}
+			{% if turn == 1%}
+				<div class="yellow-turn">Turno: Amarillo</div>
+			{% else %}
+				<div class="red-turn">Turno: Rojo</div>
+			{% endif %}
+		{% elif state == 1 %}
+			<div class="yellow-turn">El amarillo es el ganador!</div>
+		{% elif state == 2 %}
+			<div class="red-turn">El rojo es el ganador!</div>
+		{% endif %}
+	</h2>
+
+	<input id="state" type="hidden" value="{{ state }}"/>
+	<input id="turn" type="hidden" value="{{ turn }}"/>
 
 	<div id="board">
 
-	  <ul class="row">
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-			<li class="cell"></li>
-			<li class="cell"></li>
-			<li class="cell"></li>
-			<li class="cell"></li>
-	  </ul>
-	  <ul class="row">
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-			<li class="cell"></li>
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-	  </ul>
-		<ul class="row">
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-			<li class="cell"></li>
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-	  </ul>
-		<ul class="row">
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-			<li class="cell"></li>
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-	  </ul>
-		<ul class="row">
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-			<li class="cell"></li>
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-	  </ul>
-		<ul class="row">
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-			<li class="cell"></li>
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-	  </ul>
-		<ul class="row">
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-			<li class="cell"></li>
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-	  </ul>
-		<ul class="row">
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-	    <li class="cell"></li>
-			<li class="cell"></li>
-	    <li class="cell"></li>
-	    <li class="cell red"></li>
-	    <li class="cell yellow"></li>
-	  </ul>
+		{% for row in board%}
+	  	<ul class="row">
+				{% for col in row%}
+					{% if col == 0 %}
+						<li class="cell"></li>
+					{% elif col == 1 %}
+						<li class="cell yellow"></li>
+					{% elif col == 2 %}
+						<li class="cell red"></li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		{% endfor %}
+
 	</div>
 
 	<form id="play" method="POST" action="move">

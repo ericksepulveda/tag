@@ -8,6 +8,14 @@ body{
   text-align: center;
 }
 
+.yellow-turn{
+  color: #e4c809;
+}
+
+.red-turn{
+  color: #cd0b0b;
+}
+
 h1{
   font-size: 60px;
   margin: 0 0 5px;
@@ -56,7 +64,6 @@ h2{
 .cell.preview{
   opacity: 0.8;
 }
-
 
 #play{
   margin-top: 100px;

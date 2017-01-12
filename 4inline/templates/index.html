@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link href="https://fonts.googleapis.com/css?family=Bungee+Shade" rel="stylesheet">
+	<link href="img/favicon.ico" rel="icon" type="image/x-icon"/>
 </head>
 <body>
 
@@ -28,6 +29,8 @@
 	<input id="turn" type="hidden" value="{{ turn }}"/>
 
 	<div id="board">
+		<img id="mask" src="img/mask.png"/>
+		<div id="preview" class="cell"></div>
 
 		{% for row in board[::-1] %}
 			{% set outer_loop = loop %}
@@ -55,7 +58,7 @@
 
 	<form id="play" method="POST" action="move">
 		<input id="col" type="text" name="col" value="0"/>
-		<input id="submit" type="submit" value="Jugar"/>
+		<input id="play" type="submit" value="Jugar"/>
 	</form>
 </div>
 

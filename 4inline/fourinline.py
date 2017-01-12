@@ -19,7 +19,8 @@ def restart():
 
 @app.route('/move', methods=["POST"])
 def move():
-  fil.dropChip(int(request.form['col']))
+  r = fil.dropChip(int(request.form['col']))
+  fil.check4Horizontal(r[0],r[1])
   return show()
 
 @app.route('/js/<path:path>')

@@ -17,7 +17,30 @@ class FourInLine:
     self = FourInLine()
 
   def dropChip(self, col):
+    rowIndex = 0
     for row in self._board:
-      if row[col-1] == 0:
-        row[col-1] = self._turn
+      if row[col] == 0:
+        row[col] = self._turn
         break
+      rowIndex += 1
+    return (col, rowIndex)
+
+  def check4Horizontal(self, x,y):
+    counter = 0
+    for h in range(1,4):
+      if x-h > 0 and self._board[y][x-h] == 1:
+        counter += 1
+      else:
+        break
+    for h in range(1,4):
+      if x+h < 8 and self._board[y][x+h] == 1:
+        counter += 1
+      else:
+        break
+    if counter == 3:
+      self._state = 1
+      return True
+    else:
+      return False
+
+

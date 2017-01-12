@@ -10,17 +10,17 @@
 <div id="main">
 	<h1>4 en línea</h1>
 
-	<h2 id="turn">
+	<h2>
 		{% if state == 0 %}
 			{% if turn == 1%}
-				<div class="yellow-turn">Turno: Amarillo</div>
+				<div id="turn" class="yellow-turn">Turno: Amarillo</div>
 			{% else %}
-				<div class="red-turn">Turno: Rojo</div>
+				<div id="turn" class="red-turn">Turno: Rojo</div>
 			{% endif %}
 		{% elif state == 1 %}
-			<div class="yellow-turn">El amarillo es el ganador!</div>
+			<div id="winner" class="yellow-turn">El amarillo es el ganador!</div>
 		{% elif state == 2 %}
-			<div class="red-turn">El rojo es el ganador!</div>
+			<div id="winner" class="red-turn">El rojo es el ganador!</div>
 		{% endif %}
 	</h2>
 
@@ -45,6 +45,7 @@
 			</ul>
 		{% endfor %}
 
+		<div id="shadow_left_bottom_corner"></div>
 		<div id="shadow_left"></div>
 		<div id="shadow_bottom"></div>
 

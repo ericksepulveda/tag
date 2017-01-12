@@ -23,8 +23,8 @@ def step_impl(context):
 @when(u'player makes a move on column {col}')
 def step_impl(context, col):
   browser.fill('col', col)
-  browser.find_by_id('submit').click()
+  browser.find_by_id('nosubmit').click()
 
 @then(u'there should be a yellow element in column {col}')
 def step_impl(context, col):
-  assert browser.find_by_id('0_' + str(int(col)-1)).first.text == str(1)
+  assert browser.find_by_id('0_' + str(int(col))).first.text == str(1)

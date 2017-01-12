@@ -16,7 +16,7 @@ class FourInLine:
   def restart(self):
     self = FourInLine()
 
-  def dropChip(self, col):
+  def dropChip(self, player, col):
     rowIndex = 0
     for row in self._board:
       if row[col] == 0:
@@ -43,4 +43,10 @@ class FourInLine:
     else:
       return False
 
+  def nextPlayer(self):
+    self._turn = 2 if self._turn == 1 else 1
 
+  def play(self, col):
+    r = self.dropChip(self.getTurn(), col)
+    self.nextPlayer();
+    return r

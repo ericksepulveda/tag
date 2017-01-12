@@ -29,7 +29,7 @@
 
 	<div id="board">
 
-		{% for row in board%}
+		{% for row in board[::-1] %}
 	  	<ul class="row">
 				{% for col in row%}
 					{% if col == 0 %}

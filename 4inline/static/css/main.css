@@ -36,10 +36,10 @@ h2{
 
 #board{
   margin-top: 30px;
+  margin-left: 20px;
   display: inline-block;
   padding: 8px;
   background-color: #1aa9e6;
-  border-radius: 3px;
   position: relative;
 }
 
@@ -50,6 +50,39 @@ h2{
   position: absolute;
   left: -20px;
   top: 20px;
+}
+
+#shadow_left_top_corner{
+  position: absolute;
+  top: 0;
+  left: -20px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 0 20px 20px;
+  border-color: transparent transparent #0f658a transparent;
+}
+
+#shadow_bottom_corner{
+  position: absolute;
+  bottom: -20px;
+  right: 0;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 20px 20px 0 0;
+  border-color: #073244 transparent transparent transparent;
+}
+
+#shadow_left_bottom_corner{
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 20px 20px 0 0;
+  border-color: #0f658a transparent transparent transparent;
 }
 
 #shadow_bottom{

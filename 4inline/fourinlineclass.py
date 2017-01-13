@@ -38,8 +38,6 @@ class FourInLine:
         counter += 1
       else:
         break
-    print("I counted: ")
-    print(counter)
     if counter == 3:
       self._state = player
       return True
@@ -59,13 +57,49 @@ class FourInLine:
         counter += 1
       else:
         break
-    print("I counted: ")
-    print(counter)
     if counter == 3:
       self._state = player
       return True
     else:
       return False
+  def check4DiagonalID(self, x, y): 
+    counter  = 0
+    player = self._turn
+    for d in range(1,4):
+      if y-d >=0 and x-d >=0 and self._board[y-d][x-d] == player:
+        counter += 1
+      else:
+        break
+    for d in range(1,4):
+      if y+d <8 and x+d <8 and self._board[y+d][x+d] == player:
+        counter += 1
+      else:
+        break
+    if counter == 3:
+      self._state = player
+      return True
+    else:
+      return False
+
+  def check4DiagonalDI(self, x, y): 
+    counter  = 0
+    player = self._turn
+    for d in range(1,4):
+      if y+d <8 and x-d >=0 and self._board[y+d][x-d] == player:
+        counter += 1
+      else:
+        break
+    for d in range(1,4):
+      if y-d >=0 and x+d <8 and self._board[y-d][x+d] == player:
+        counter += 1
+      else:
+        break
+    if counter == 3:
+      self._state = player
+      return True
+    else:
+      return False
+
 
   def otherPlayer(self, player):
     return 2 if player == 1 else 1
@@ -76,6 +110,8 @@ class FourInLine:
   def play(self, col):
     r = self.dropChip(self.getTurn(), col)
     status = self.check4Horizontal(r[0], r[1])
-    status = status or self.check4Vertical(r[0], r[1])
+    status = status or self.check4Vertical(r[0], r[1])  
+    status = status or self.check4DiagonalID(r[0], r[1])
+    status = status or self.check4DiagonalDI(r[0], r[1])
     self.nextPlayer();
     return status
